@@ -19,3 +19,17 @@ def f3(num):
     for i in xrange(num):
         total += (i / j).sum()
     return total
+
+
+'''output:
+
+In [30]: %timeit f1(9999)
+1 loops, best of 3: 27.2 s per loop
+
+In [31]: %timeit f2(9999)
+1 loops, best of 3: 1.46 s per loop
+
+In [32]: %timeit f3(9999)
+1 loops, best of 3: 915 ms per loop
+
+,,,
