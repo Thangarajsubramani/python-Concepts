@@ -63,3 +63,39 @@ for index in reversed(range(0,len(digits))):
       multi *=10
 
 print (sums+1)
+
+
+class Bigint(object):
+  
+  def __init__(self,value):
+    
+    self.digits=value
+    
+  def sums(self):
+    
+    sumz=0
+    multi=1
+    result=[]
+    
+    for index in reversed(range(0,len(self.digits))):
+      
+       sumz += self.digits[index] *multi
+       multi*=10
+    result.append(sumz)
+    
+    return self.__class__(sumz)
+  
+  def __str__(self):
+      return 'Bigint (%d)' % (self.digits)
+    
+    
+    
+    
+
+obj=Bigint([1,2,3])
+
+print obj.sums()
+    
+    
+  
+  
