@@ -1,3 +1,22 @@
+class Country(models.Model):
+    name = models.CharField(max_length=30)
+
+class City(models.Model):
+    name = models.CharField(max_length=30)
+    country = models.ForeignKey(Country)
+    population = models.PositiveIntegerField()
+    
+    
+    
+    
+ ======================================================
+
+from django.db.models import Sum
+
+City.objects.aggregate(Sum('population'))
+{'population__sum': 970880224}  # 970,880,224
+
+
 City.objects.values('country__name') \
   .annotate(country_population=Sum('population')) \
   .filter(country_population__gt=50000000) \
